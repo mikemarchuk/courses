@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Car Market Shiny Application</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Car Market Shiny Application">
+  <meta name="author" content="Mike Marchuk">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+<link rel=stylesheet href="./assets/css/style.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Car Market Shiny Application</h1>
+    <h2>Course Project</h2>
+    <p>Mike Marchuk<br/>Developing Data Products, Coursera</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>General description</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>My shiny application is a simple example of selection of car on the market. Of course, it does not reflect the real situation in the market and does not represent all possible lineup of cars.</p>
+
+<p>Shiny application consists of two files - <span class="bold">server.R</span> and <span class="bold">ui.R</span>. </p>
+
+<p>File <span class="bold italic">ui.R</span> intended to describe the user interface through which the user interacts with the application.
+File <span class="bold italic">server.R</span> actually implements the logic of the application and loads the required data (once).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="functionality" id="slide-2" style="background:;">
+  <hgroup>
+    <h2>Functionality</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>To display a list of cars must select the brand and model. Brands and models related: model list is filled with the chosen brand.</p>
+
+<p class="name_elem">Range of market price</p>
+
+<p>Limits the market price of the car. Properties: minimum value = 100,000, maximum value = 1,000,000, step = 20,000. Default values: 100,000 and 1,000,000.</p>
+
+<p class="name_elem">Range of years</p>
+
+<p>Limits on car production year. Properties: minimum value = 2013, maximum value = 2015, step = 1. Default values: 2013 and 2015.</p>
+
+<p class="name_elem">Number of cars to view</p>
+
+<p>Used to change the number of cars that appear in the list. Properties: minimum value = 5, maximum value = 20. Default value: 15.</p>
+
+<p class="name_elem">Number of page</p>
+
+<p>Used to navigate through the pages. NOTE: Will be displayed after the model selection.</p>
+
+<p class="name_elem">Other information</p>
+
+<p>Above the list output the total number of cars and the number of pages.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-3" style="background:;">
+  <hgroup>
+    <h2>Example, part 1</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The following shows a text description of the request to the server:</p>
+
+<ul>
+<li>brand: Chevrolet</li>
+<li>model: AVEO</li>
+<li>market price range: 100,000 - 1,000,000</li>
+<li>year of production: 2010 - 2012</li>
+<li>numbers of cars to view: 10</li>
+<li>numbers of page: 5</li>
+</ul>
+
+<p>and...</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Example, part 2</h2>
+  </hgroup>
+  <article data-timings="">
+    
+<div style='float:left;width:50%; align: left;'>
+  <p>so it will look like on form:</p>
+
+<p><img src="assets/img/example.png" alt="image"></p>
+
+</div>
+<div style='float:right;width:50%;'>
+  <p>and the result is that the server returns:</p>
+
+<pre><code>##        Brand Model Market price Year
+## 41 CHEVROLET  AVEO       200000 2012
+## 42 CHEVROLET  AVEO       195000 2012
+## 43 CHEVROLET  AVEO       180000 2012
+## 44 CHEVROLET  AVEO       180000 2012
+## 45 CHEVROLET  AVEO       180000 2012
+## 46 CHEVROLET  AVEO       180000 2012
+## 47 CHEVROLET  AVEO       170000 2012
+## 48 CHEVROLET  AVEO       170000 2012
+## 49 CHEVROLET  AVEO       170000 2011
+## 50 CHEVROLET  AVEO       165000 2012
+</code></pre>
+
+<p>and some total values:</p>
+
+<pre><code>## [1] &quot;Total:  229 Count pages:  23&quot;
+</code></pre>
+
+</div>
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-5" style="background:;">
+  <hgroup>
+    <h2>P.S.</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>Presentation created within the course project at class &quot;Developing Data Products&quot;.</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='General description'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='Functionality'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Example, part 1'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Example, part 2'>
+         4
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=5 title='P.S.'>
+         5
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>

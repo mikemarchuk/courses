@@ -1,0 +1,16 @@
+.bold {
+    font-weight: bold;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.name_elem {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.functionality p {
+    font-size: 16px;
+}
